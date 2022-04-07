@@ -17,8 +17,6 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 //Get all products => api/v1/products?keyword=Nam
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-  return next(new ErrorHandler("Cant show", 400));
-
   const resPerPage = 8;
   const productsCount = await Product.countDocuments();
 
