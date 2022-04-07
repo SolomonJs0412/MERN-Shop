@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 
 import MetaData from "./layout/MetaData";
 import Product from "./product/Product";
+import Loader from "./layout/Loader";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../actions/productActions";
@@ -19,7 +20,7 @@ const Home = () => {
   return (
     <Fragment>
       {loading ? (
-        <h1>Đang tải trang...</h1>
+        <Loader />
       ) : (
         <Fragment>
           <MetaData title={"Mua đồng hồ giá tốt"} />
