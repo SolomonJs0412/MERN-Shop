@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <Fragment>
       <footer className="py-1">
-        <p className="text-center mt-1">All hail Hòn Đạt toàn năng</p>
+        <p className="text-center mt-1">All hail Hon Dat toan nang</p>
       </footer>
     </Fragment>
   );

@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 
+import "../../App.css";
+
 const Header = () => {
   return (
     <Fragment>
@@ -16,7 +18,7 @@ const Header = () => {
               type="text"
               id="search_field"
               className="form-control"
-              placeholder="Nhập tên sản phẩm"
+              placeholder="Nhập tên sản phẩm..."
             />
             <div className="input-group-append">
               <button id="search_btn" className="btn">
