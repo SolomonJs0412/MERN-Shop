@@ -18,6 +18,7 @@ const Home = ({ match }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
   const [gender, setGender] = useState("");
+  const [rating, setRating] = useState(0);
 
   const genders = ["Male", "Female", "Unisex"];
 
@@ -39,8 +40,8 @@ const Home = ({ match }) => {
     if (error) {
       return alert.error(error);
     }
-    dispatch(getProducts(keyword, currentPage, price, gender));
-  }, [dispatch, alert, error, currentPage, keyword, price, gender]);
+    dispatch(getProducts(keyword, currentPage, price, gender, rating));
+  }, [dispatch, alert, error, currentPage, keyword, price, gender, rating]);
 
   function setCurrentPageNo(pageNumber) {
     setCurrentPage(pageNumber);
@@ -86,7 +87,7 @@ const Home = ({ match }) => {
                       <hr className="my-5" />
 
                       <div className="mt-5">
-                        <h4 className="mb-3">genders</h4>
+                        <h4 className="mb-3">Giới tính</h4>
                         <ul className="pl-0">
                           {genders.map((gender) => (
                             <li
@@ -98,6 +99,33 @@ const Home = ({ match }) => {
                               onClick={() => setGender(gender)}
                             >
                               {gender}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <hr className="my-3" />
+
+                      <div className="mt-5">
+                        <h4 className="mb-3">Đánh giá</h4>
+                        <ul className="pl-0">
+                          {[5, 4, 3, 2, 1].map((star) => (
+                            <li
+                              style={{
+                                cursor: "pointer",
+                                listStyleType: "none",
+                              }}
+                              key={star}
+                              onClick={() => setRating(star)}
+                            >
+                              <div className="rating-outer">
+                                <div
+                                  className="rating-inner"
+                                  style={{
+                                    width: `${star * 20}%`,
+                                  }}
+                                ></div>
+                              </div>
                             </li>
                           ))}
                         </ul>
