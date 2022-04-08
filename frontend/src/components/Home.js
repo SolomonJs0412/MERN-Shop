@@ -17,6 +17,10 @@ const Range = createSliderWithTooltip(Slider.Range);
 const Home = ({ match }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
+  const [gender, setGender] = useState("");
+
+  const genders = ["Male", "Female", "Unisex"];
+
   const alert = useAlert();
   const dispatch = useDispatch();
 
@@ -30,8 +34,8 @@ const Home = ({ match }) => {
     if (error) {
       return alert.error(error);
     }
-    dispatch(getProducts(keyword, currentPage, price));
-  }, [dispatch, alert, error, currentPage, keyword, price]);
+    dispatch(getProducts(keyword, currentPage, price, gender));
+  }, [dispatch, alert, error, currentPage, keyword, price, gender]);
 
   function setCurrentPageNo(pageNumber) {
     setCurrentPage(pageNumber);
@@ -68,6 +72,26 @@ const Home = ({ match }) => {
                         value={price}
                         onChange={(price) => setPrice(price)}
                       />
+
+                      <hr className="my-5" />
+
+                      <div className="mt-5">
+                        <h4 className="mb-3">genders</h4>
+                        <ul className="pl-0">
+                          {genders.map((gender) => (
+                            <li
+                              style={{
+                                cursor: "pointer",
+                                listStyleType: "none",
+                              }}
+                              key={gender}
+                              onClick={() => setGender(gender)}
+                            >
+                              {gender}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
