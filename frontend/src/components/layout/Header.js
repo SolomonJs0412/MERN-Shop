@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import Search from "./Search";
+import { logout } from "../../actions/userActions";
 
 import "../../App.css";
 
@@ -11,6 +12,11 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const { user, loading } = useSelector((state) => state.auth);
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    alert.success("Đăng xuất thành công");
+  };
   return (
     <Fragment>
       <nav className="navbar row">
@@ -73,7 +79,11 @@ const Header = () => {
                 <Link className="dropdown-item" to="/me">
                   Thông tin
                 </Link>
-                <Link className="dropdown-item text-danger" to="/">
+                <Link
+                  className="dropdown-item text-danger"
+                  to="/"
+                  onClick={logoutHandler}
+                >
                   Đăng xuất
                 </Link>
               </div>
