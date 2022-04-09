@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import ProductDetails from "./components/product/ProductDetails";
 
 import Login from "./components/user/Login";
+import Register from "./components/user/Register";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/product/:id" component={ProductDetails} exact />
 
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
         </div>
         <Footer />
       </div>

@@ -45,7 +45,7 @@ const Login = ({ history }) => {
           <div className="row wrapper">
             <div className="col-10 col-lg-5">
               <form className="shadow-lg" onSubmit={submitHandler}>
-                <h1 className="mb-3">Login</h1>
+                <h1 className="mb-3">Đăng nhập</h1>
                 <div className="form-group">
                   <label htmlFor="email_field">Email</label>
                   <input
@@ -58,7 +58,7 @@ const Login = ({ history }) => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password_field">Password</label>
+                  <label htmlFor="password_field">Mật khẩu</label>
                   <input
                     type="password"
                     id="password_field"
@@ -69,7 +69,7 @@ const Login = ({ history }) => {
                 </div>
 
                 <Link to="/password/forgot" className="float-right mb-4">
-                  Forgot Password?
+                  Quên mật khẩu?
                 </Link>
 
                 <button
@@ -77,11 +77,11 @@ const Login = ({ history }) => {
                   type="submit"
                   className="btn btn-block py-3"
                 >
-                  LOGIN
+                  ĐĂNG NHẬP
                 </button>
 
                 <Link to="/register" className="float-right mt-3">
-                  New User?
+                  Đăng ký tài khoản?
                 </Link>
               </form>
             </div>
