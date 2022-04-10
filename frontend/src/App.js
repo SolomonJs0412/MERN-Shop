@@ -18,6 +18,7 @@ import ForgotPassword from "./components/user/ForgotPassword";
 import NewPassword from "./components/user/NewPassword";
 
 import Cart from "./components/cart/Cart";
+import Shipping from "./components/cart/Shipping";
 
 import ProtectedRoute from "./components/route/ProtectedRoute";
 
@@ -50,6 +51,7 @@ function App() {
           />
 
           <Route path="/cart" component={Cart} exact />
+          <ProtectedRoute path="/shipping" component={Shipping} />
         </div>
         <Footer />
       </div>
