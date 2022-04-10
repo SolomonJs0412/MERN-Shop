@@ -119,15 +119,29 @@ const Cart = () => {
 
             <div className="col-12 col-lg-3 my-4">
               <div id="order_summary">
-                <h4>Order Summary</h4>
+                <h4>Xem trước đơn</h4>
                 <hr />
                 <p>
-                  Subtotal:{" "}
-                  <span className="order-summary-values">3 (Units)</span>
+                  Số lượng hàng:{" "}
+                  <span className="order-summary-values">
+                    {cartItems.reduce(
+                      (acc, item) => acc + Number(item.quantity),
+                      0
+                    )}
+                    (món)
+                  </span>
                 </p>
                 <p>
-                  Est. total:{" "}
-                  <span className="order-summary-values">$765.56</span>
+                  Tổng thanh toán:{" "}
+                  <span className="order-summary-values">
+                    ${" "}
+                    {cartItems
+                      .reduce(
+                        (acc, item) => acc + item.quantity * item.price,
+                        0
+                      )
+                      .toFixed(2)}
+                  </span>
                 </p>
 
                 <hr />
