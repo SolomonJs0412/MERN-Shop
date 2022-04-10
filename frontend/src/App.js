@@ -17,6 +17,8 @@ import UpdatePassword from "./components/user/UpdatePassword";
 import ForgotPassword from "./components/user/ForgotPassword";
 import NewPassword from "./components/user/NewPassword";
 
+import Cart from "./components/cart/Cart";
+
 import ProtectedRoute from "./components/route/ProtectedRoute";
 
 import store from "./store";
@@ -46,6 +48,8 @@ function App() {
             component={UpdatePassword}
             exact
           />
+
+          <Route path="/cart" component={Cart} exact />
         </div>
         <Footer />
       </div>
