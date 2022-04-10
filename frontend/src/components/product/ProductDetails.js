@@ -146,7 +146,7 @@ const ProductDetails = ({ match }) => {
                 data-toggle="modal"
                 data-target="#ratingModal"
               >
-                Hoàn tất đánh giá
+                Đánh giá sản phẩm
               </button>
 
               <div className="row mt-2 mb-5">
@@ -163,7 +163,7 @@ const ProductDetails = ({ match }) => {
                       <div className="modal-content">
                         <div className="modal-header">
                           <h5 className="modal-title" id="ratingModalLabel">
-                            Submit Review
+                            Thêm đánh giá của bạn
                           </h5>
                           <button
                             type="button"
@@ -204,7 +204,7 @@ const ProductDetails = ({ match }) => {
                             data-dismiss="modal"
                             aria-label="Close"
                           >
-                            Submit
+                            Hoàn tất
                           </button>
                         </div>
                       </div>

@@ -24,6 +24,8 @@ import ConfirmOrder from "./components/cart/ConfirmOrder";
 import Payment from "./components/cart/Payment";
 import OrderSuccess from "./components/cart/OrderSuccess";
 
+import ListOrders from "./components/order/ListOrders";
+
 import ProtectedRoute from "./components/route/ProtectedRoute";
 
 import { Elements } from "@stripe/react-stripe-js";
@@ -67,6 +69,8 @@ function App() {
             component={UpdatePassword}
             exact
           />
+
+          <ProtectedRoute path="/orders/me" component={ListOrders} exact />
 
           <Route path="/cart" component={Cart} exact />
           <ProtectedRoute path="/shipping" component={Shipping} />
