@@ -5,6 +5,7 @@ import { useAlert } from "react-alert";
 import { getProductDetails, clearErrors } from "../../actions/productActions";
 import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
+import { addItemToCart } from "../../actions/cartActions";
 
 const ProductDetails = ({ match }) => {
   const [quantity, setQuantity] = useState(1);
@@ -23,6 +24,11 @@ const ProductDetails = ({ match }) => {
       dispatch(clearErrors());
     }
   }, [dispatch, alert, error, match.params.id]);
+
+  const addToCart = () => {
+    dispatch(addItemToCart(match.params.id, quantity));
+    alert.success("Thêm sản phẩm thành công");
+  };
 
   const increaseQty = () => {
     const count = document.querySelector(".count");
@@ -106,6 +112,8 @@ const ProductDetails = ({ match }) => {
                 type="button"
                 id="cart_btn"
                 className="btn btn-primary d-inline ml-4"
+                disabled={product.stock === 0}
+                onClick={addToCart}
               >
                 Thêm vào giỏ
               </button>
