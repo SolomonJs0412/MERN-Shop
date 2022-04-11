@@ -8,6 +8,7 @@ import "./App.css";
 
 import Home from "./components/Home";
 import ProductDetails from "./components/product/ProductDetails";
+import OrderDetails from "./components/order/OrderDetails";
 
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
@@ -71,6 +72,7 @@ function App() {
           />
 
           <ProtectedRoute path="/orders/me" component={ListOrders} exact />
+          <ProtectedRoute path="/order/:id" component={OrderDetails} exact />
 
           <Route path="/cart" component={Cart} exact />
           <ProtectedRoute path="/shipping" component={Shipping} />
