@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -32,6 +33,7 @@ import ProtectedRoute from "./components/route/ProtectedRoute";
 //Admin imports
 import Dashboard from "./components/admin/DashBoard";
 import ProductList from "./components/admin/ProductList";
+import NewProduct from "./components/admin/NewProduct";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -53,6 +55,8 @@ function App() {
 
     getStripApiKey();
   }, []);
+
+  const { user, isAuthenticated, loading } = useSelector((state) => state.auth);
 
   return (
     <Router>
@@ -77,31 +81,38 @@ function App() {
 
           <ProtectedRoute path="/orders/me" component={ListOrders} exact />
           <ProtectedRoute path="/order/:id" component={OrderDetails} exact />
-
-          <ProtectedRoute
-            path="/dashboard"
-            isAdmin={true}
-            component={Dashboard}
-            exact
-          />
-          <ProtectedRoute
-            path="/admin/products"
-            isAdmin={true}
-            component={ProductList}
-            exact
-          />
-
-          <Route path="/cart" component={Cart} exact />
-          <ProtectedRoute path="/shipping" component={Shipping} />
-          <ProtectedRoute path="/order/confirm" component={ConfirmOrder} />
-          <ProtectedRoute path="/success" component={OrderSuccess} />
-          {stripeApiKey && (
-            <Elements stripe={loadStripe(stripeApiKey)}>
-              <ProtectedRoute path="/payment" component={Payment} />
-            </Elements>
-          )}
         </div>
-        <Footer />
+
+        <ProtectedRoute
+          path="/dashboard"
+          isAdmin={true}
+          component={Dashboard}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/products"
+          isAdmin={true}
+          component={ProductList}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/product"
+          isAdmin={true}
+          component={NewProduct}
+          exact
+        />
+
+        <Route path="/cart" component={Cart} exact />
+        <ProtectedRoute path="/shipping" component={Shipping} />
+        <ProtectedRoute path="/order/confirm" component={ConfirmOrder} />
+        <ProtectedRoute path="/success" component={OrderSuccess} />
+        {stripeApiKey && (
+          <Elements stripe={loadStripe(stripeApiKey)}>
+            <ProtectedRoute path="/payment" component={Payment} />
+          </Elements>
+        )}
+
+        {!loading && (!isAuthenticated || user.role !== "admin") && <Footer />}
       </div>
     </Router>
   );
