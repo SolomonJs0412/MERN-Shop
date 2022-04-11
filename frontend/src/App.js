@@ -29,6 +29,10 @@ import ListOrders from "./components/order/ListOrders";
 
 import ProtectedRoute from "./components/route/ProtectedRoute";
 
+//Admin imports
+import Dashboard from "./components/admin/DashBoard";
+import ProductList from "./components/admin/ProductList";
+
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -73,6 +77,19 @@ function App() {
 
           <ProtectedRoute path="/orders/me" component={ListOrders} exact />
           <ProtectedRoute path="/order/:id" component={OrderDetails} exact />
+
+          <ProtectedRoute
+            path="/dashboard"
+            isAdmin={true}
+            component={Dashboard}
+            exact
+          />
+          <ProtectedRoute
+            path="/admin/products"
+            isAdmin={true}
+            component={ProductList}
+            exact
+          />
 
           <Route path="/cart" component={Cart} exact />
           <ProtectedRoute path="/shipping" component={Shipping} />
