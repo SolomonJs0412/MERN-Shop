@@ -24,8 +24,8 @@ const Dashboard = () => {
   }, [dispatch]);
   return (
     <Fragment>
-      <div classNameName="row">
-        <div classNameName="col-12 col-md-2">
+      <div className="row">
+        <div className="col-12 col-md-2">
           <Sidebar />
         </div>
 
