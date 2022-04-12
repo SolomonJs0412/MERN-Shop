@@ -34,6 +34,7 @@ import ProtectedRoute from "./components/route/ProtectedRoute";
 import Dashboard from "./components/admin/DashBoard";
 import ProductList from "./components/admin/ProductList";
 import NewProduct from "./components/admin/NewProduct";
+import UpdateProduct from "./components/admin/UpdateProduct";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -99,6 +100,12 @@ function App() {
           path="/admin/product"
           isAdmin={true}
           component={NewProduct}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/product/:id"
+          isAdmin={true}
+          component={UpdateProduct}
           exact
         />
 
