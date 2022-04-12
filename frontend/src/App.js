@@ -36,7 +36,7 @@ import ProductList from "./components/admin/ProductList";
 import NewProduct from "./components/admin/NewProduct";
 import UpdateProduct from "./components/admin/UpdateProduct";
 import OrdersList from "./components/admin/OrdersList";
-
+import UsersList from "./components/admin/UsersList";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -113,6 +113,12 @@ function App() {
           path="/admin/orders"
           isAdmin={true}
           component={OrdersList}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/users"
+          isAdmin={true}
+          component={UsersList}
           exact
         />
 
