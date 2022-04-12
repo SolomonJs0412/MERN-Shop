@@ -39,6 +39,7 @@ import OrdersList from "./components/admin/OrdersList";
 import UsersList from "./components/admin/UsersList";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import ProductReviews from "./components/admin/ProductReviews";
 
 import store from "./store";
 
@@ -119,6 +120,12 @@ function App() {
           path="/admin/users"
           isAdmin={true}
           component={UsersList}
+          exact
+        />
+        <ProtectedRoute
+          path="/admin/reviews"
+          isAdmin={true}
+          component={ProductReviews}
           exact
         />
 
